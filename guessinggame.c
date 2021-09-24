@@ -44,6 +44,16 @@ int main()
                 }
                 break;
             case 2:
+                 printf("\nWhat is the max number? ");
+                scanf("%d", &maxValue);
+                printf("Max number saved as: %d", maxValue);
+                break;
+            case 3:
+                printf("Thanks for playing!");
+                exit(0);
+            default:
+                printf("invalid option");
+                break;
         }
     }
     //switch 1: will be the regular base version of the game guessing between 1-10 
