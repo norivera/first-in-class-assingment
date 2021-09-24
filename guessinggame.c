@@ -13,7 +13,7 @@ int main()
     int maxValue = 10;
     while (inputChoice != 3)
     {
-        printf("\nChoose an option: \n[1]:Start game \n[2]Change maximum number \n[3]Quit");
+        printf("\nChoose an option: \n[1]:Start game \n[2]:Change maximum number \n[3]:Quit\n");
         scanf("%d", &inputChoice);
         //use switch statments for the menu 
         switch (inputChoice)
@@ -21,11 +21,31 @@ int main()
             case 1:
                 int num = rand() % maxValue+1;
                 bool found = false;
-                printf("\nA random number has been generated, input a number to guess what my generated number: ");
+                printf("\nA random number has been generated, pick a number between 1-10: ");
+                while(!found)
+                {
+                    int userInput;
+                    scanf("%d", &userInput);
 
+                    if (userInput > num)
+                    {
+                        printf("Too high, try again!\n");
+                    }
+                    else if (userInput < num)
+                    {
+                        printf("Too low, try again!\n");
+                    }
+                    else 
+                    {
+                        printf("Correct!\n");
+                        found = true;
+                    }
+
+                }
+                break;
+            case 2:
         }
     }
-    
     //switch 1: will be the regular base version of the game guessing between 1-10 
     //switch 2: will ask the user to change the max number a user can guess when playing 
     //switch 3: wil quit the game     
