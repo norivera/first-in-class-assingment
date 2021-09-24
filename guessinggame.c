@@ -13,7 +13,7 @@ int main()
     int maxValue = 10;
     while (inputChoice != 3)
     {
-        printf("\nChoose an option 1 to start playing 2 to change maximum number 3 to quit: \n[1] \n[2] \n[3]");
+        printf("\nChoose an option: \n[1]:Start game \n[2]Change maximum number \n[3]Quit");
         scanf("%d", &inputChoice);
         //use switch statments for the menu 
         switch (inputChoice)
@@ -22,7 +22,7 @@ int main()
                 int num = rand() % maxValue+1;
                 bool found = false;
                 printf("\nA random number has been generated, input a number to guess what my generated number: ");
-                
+
         }
     }
     
