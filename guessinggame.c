@@ -1,50 +1,59 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <time.h> 
+#include <time.h>
 
 int main()
 {
-    //declare variables needed 
+    //varaible declaration
     FILE *fp, *out;
     time_t t;
-    srand((unsigned)time(&t));
+    srand((unsigned) time(&t));
     int inputChoice = 0;
     int maxValue = 10;
-    while (inputChoice != 3)
-    {
-        printf("\nChoose an option: \n[1]:Start game \n[2]:Change maximum number \n[3]:Quit\n");
+
+    //Menu creation 
+    while (inputChoice != 3) {
+        printf("\nEnter option:\n[1]:Guess number\n [2]:Change max\n [3]:Exit\n");
         scanf("%d", &inputChoice);
-        //use switch statments for the menu 
         switch (inputChoice)
-        {
-            case 1:
+         {
+            case 1: ;
                 int num = rand() % maxValue+1;
-                bool found = false;
-                printf("\nA random number has been generated, pick a number between 1-10: ");
-                while(!found)
+                bool inProgress = false;
+                printf("\nA random number has been generated, input number to start guessing: ");
+                while (!inProgress) 
                 {
-                    int userInput;
-                    scanf("%d", &userInput);
+                    char userInput;
+                    scanf("%c", &userInput);
 
-                    if (userInput > num)
+                    int convert = (int)userInput;
+                    if (convert > num+48 && convert != 10 && convert != 113)
                     {
-                        printf("Too high, try again!\n");
-                    }
-                    else if (userInput < num)
+                        printf("Too high, try again!");
+                    } 
+                    else if (convert < num+48 && convert != 10 && convert != 113)
                     {
-                        printf("Too low, try again!\n");
+                        printf("Too low, try again!");
                     }
-                    else 
+                    else if (convert == 10)
                     {
-                        printf("Correct!\n");
-                        found = true;
+                        ;
                     }
-
+                    else if (convert == 113)
+                    {
+                        printf("\nExiting the game, back to main menu!");
+                        inProgress = true;
+                    }
+                    else
+                    {
+                        printf("Correct!");
+                        inProgress = true;
+                    }
                 }
                 break;
             case 2:
-                 printf("\nWhat is the max number? ");
+                printf("\nWhat is the max number? ");
                 scanf("%d", &maxValue);
                 printf("Max number saved as: %d", maxValue);
                 break;
@@ -56,8 +65,7 @@ int main()
                 break;
         }
     }
+}
     //switch 1: will be the regular base version of the game guessing between 1-10 
     //switch 2: will ask the user to change the max number a user can guess when playing 
-    //switch 3: wil quit the game     
-}
-
+    //switch 3: wil quit the game  
