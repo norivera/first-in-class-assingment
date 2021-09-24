@@ -30,11 +30,11 @@ int main()
                     int convert = (int)userInput;
                     if (convert > num+48 && convert != 10 && convert != 113)
                     {
-                        printf("Too high, try again!");
+                        printf("Too high, try again!\n");
                     } 
                     else if (convert < num+48 && convert != 10 && convert != 113)
                     {
-                        printf("Too low, try again!");
+                        printf("Too low, try again!\n");
                     }
                     else if (convert == 10)
                     {
