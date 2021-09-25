@@ -4,7 +4,8 @@
 #include <stdbool.h>
 #include <time.h>
 
-int main(){
+int main()
+{
     FILE *fp, *out;
     time_t t;
     srand((unsigned) time(&t));
@@ -35,16 +36,22 @@ int main(){
                     {
                         printf("Break out!");
                         break;
-                    } else {
+                    }
+                    else
+                    {
                         int convert;
                         sscanf(userInput, "%d", &convert);
-                        //printf("\nTest: %d", convert);
 
-                        if (convert > num) {
+                        if (convert > num)
+                        {
                             printf("Too high, try again!\n");
-                        } else if (convert < num) {
+                        }
+                        else if (convert < num)
+                        {
                             printf("Too low, try again!\n");
-                        } else {
+                        }
+                        else
+                        {
                             printf("Correct!\n");
                             inProgress = true;
                         }
